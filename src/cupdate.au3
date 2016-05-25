@@ -33,12 +33,12 @@ Else
 	$file = $cmdline[1]
 EndIf
 
-$aFileList = _FileListToArray(@ScriptDir, "*.json")
+$aFileList = _FileListToArray(@WorkingDir, "*.json")
 
 EnvSet ( "COMPOSER" , $file )
 
 $CMD =  "composer update"
-RunWait(@ComSpec & " /c " & $CMD, @ScriptDir)
+RunWait(@ComSpec & " /c " & $CMD, @WorkingDir)
 
 
 ConsoleWrite("composer-update: the end " & @CRLF)
