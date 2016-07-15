@@ -1,7 +1,7 @@
 #Region
-#AutoIt3Wrapper_Res_Fileversion=0.1.0.1
+#AutoIt3Wrapper_Res_Fileversion=0.1.1.2
 #AutoIt3Wrapper_Res_Comment=composer update wrapper for windows
-#AutoIt3Wrapper_Res_Description=desc
+#AutoIt3Wrapper_Res_Description=composer update wrapper for windows
 #AutoIt3Wrapper_Res_LegalCopyright=plosnaky.cz
 #AutoIt3Wrapper_OutFile=..\build\cupdate.exe
 #EndRegion
@@ -31,6 +31,9 @@ if _UBound($cmdline)==0 Then
 	$file = 'composer.json'
 Else
 	$file = $cmdline[1]
+	if StringRight($file,5)<>'.json' Then
+		$file = $file & '.json'
+	EndIf
 EndIf
 
 $aFileList = _FileListToArray(@WorkingDir, "*.json")
